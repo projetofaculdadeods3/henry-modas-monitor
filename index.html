@@ -1,155 +1,370 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-BR">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Monitor Ambiental Comunitário</title>
-
+  <title>Henry Modas | Monitor Ambiental Comunitário</title>
   <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
     body {
       font-family: Arial, sans-serif;
-      background-color: #f4f6f8;
-      margin: 0;
+      background: #f4f4f4;
+      color: #222;
+      line-height: 1.6;
     }
 
     header {
-      background-color: #2f6fd6;
+      background: #123d73;
       color: white;
       text-align: center;
-      padding: 20px;
+      padding: 32px 20px;
+    }
+
+    header h1 {
+      font-size: 2.5rem;
+      margin-bottom: 8px;
+    }
+
+    header h2 {
+      font-size: 1.5rem;
+      font-weight: normal;
+      margin-bottom: 16px;
+    }
+
+    header p {
+      max-width: 900px;
+      margin: 0 auto;
+      font-size: 1rem;
     }
 
     .container {
-      padding: 20px;
-      max-width: 900px;
-      margin: auto;
+      max-width: 1100px;
+      margin: 24px auto;
+      padding: 0 16px;
     }
 
     .card {
       background: white;
-      padding: 15px;
-      margin-bottom: 15px;
-      border-radius: 8px;
-      box-shadow: 0px 2px 6px rgba(0,0,0,0.1);
+      border-radius: 14px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+      padding: 24px;
+      margin-bottom: 22px;
     }
 
-    h2 {
-      margin-top: 0;
+    .card h3 {
+      margin-bottom: 14px;
+      color: #123d73;
+      font-size: 1.5rem;
     }
 
-    .status-box {
-      display: inline-block;
-      padding: 6px 10px;
-      border-radius: 6px;
+    .banner-loja {
+      width: 100%;
+      border-radius: 12px;
+      display: block;
+    }
+
+    .grid-dados {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 16px;
+      margin-top: 18px;
+    }
+
+    .dado-box {
+      background: #f8fafc;
+      border-left: 6px solid #123d73;
+      border-radius: 10px;
+      padding: 18px;
+    }
+
+    .dado-box h4 {
+      margin-bottom: 8px;
+      color: #123d73;
+    }
+
+    .valor {
+      font-size: 1.8rem;
       font-weight: bold;
-      margin-top: 8px;
+    }
+
+    .explicacao h4 {
+      margin-top: 18px;
+      margin-bottom: 8px;
+      color: #123d73;
+    }
+
+    ul {
+      margin: 10px 0 10px 20px;
+    }
+
+    li {
+      margin-bottom: 6px;
+    }
+
+    .aqi-status {
+      display: inline-block;
+      padding: 8px 14px;
+      border-radius: 8px;
+      color: white;
+      font-weight: bold;
+      margin-top: 10px;
+    }
+
+    .fonte-box {
+      background: #f8fafc;
+      border-radius: 10px;
+      padding: 14px;
+      margin-top: 12px;
+    }
+
+    footer {
+      text-align: center;
+      padding: 24px;
+      background: #123d73;
+      color: white;
+      margin-top: 30px;
+    }
+
+    .muted {
+      color: #555;
+    }
+
+    @media (max-width: 600px) {
+      header h1 {
+        font-size: 1.9rem;
+      }
+
+      header h2 {
+        font-size: 1.2rem;
+      }
+
+      .valor {
+        font-size: 1.5rem;
+      }
     }
   </style>
 </head>
-
 <body>
 
   <header>
-    <h1>Monitor Ambiental Comunitário</h1>
-    <p>Zona Leste de São Paulo</p>
+    <h1>Henry Modas</h1>
+    <h2>Monitor Ambiental Comunitário</h2>
+    <p>
+      A Henry Modas disponibiliza este espaço de monitoramento ambiental à comunidade,
+      por meio de sistema instalado no estabelecimento.
+    </p>
   </header>
 
-  <div class="container">
+  <main class="container">
 
-    <div class="card">
-      <h2>Sobre o projeto</h2>
+    <section class="card">
+      <img src="banner-henry-modas.jpg" alt="Banner da loja Henry Modas" class="banner-loja">
+    </section>
+
+    <section class="card">
+      <h3>Sobre o monitoramento</h3>
       <p>
-        Este projeto tem como objetivo disponibilizar informações sobre temperatura
-        e umidade do ar na Zona Leste de São Paulo, auxiliando a população na
-        prevenção de desconfortos relacionados ao clima.
+        Este espaço foi criado para disponibilizar informações ambientais locais por meio de um sistema eletrônico
+        com sensor físico, permitindo a leitura de temperatura, umidade e pressão atmosférica. O objetivo é contribuir
+        para a conscientização ambiental e para o bem-estar da comunidade, com acesso simples e direto às condições do ambiente.
       </p>
-    </div>
+    </section>
 
-    <div class="card">
-      <h2>Dados ambientais locais</h2>
-      <p>Status: em breve disponível com o sensor do projeto.</p>
-    </div>
+    <section class="card">
+      <h3>Leitura ambiental atual</h3>
+      <p class="muted">
+        Abaixo são exibidos os dados captados pelo sistema de monitoramento ambiental instalado no local.
+      </p>
 
-    <div class="card">
-      <h2>Qualidade do ar em São Paulo</h2>
-      <p><strong>AQI:</strong> <span id="aqi-valor">--</span></p>
-      <p><strong>Estação:</strong> <span id="estacao">Carregando...</span></p>
-      <div id="aqi-status" class="status-box">Carregando...</div>
-    </div>
+      <div class="grid-dados">
+        <div class="dado-box">
+          <h4>🌡️ Temperatura</h4>
+          <div class="valor">23,8 °C</div>
+        </div>
 
-    <div class="card">
-      <h2>Saúde e bem-estar</h2>
+        <div class="dado-box">
+          <h4>💧 Umidade</h4>
+          <div class="valor">48,5 %</div>
+        </div>
+
+        <div class="dado-box">
+          <h4>🌬️ Pressão</h4>
+          <div class="valor">931,2 hPa</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="card">
+      <h3>Qualidade do ar em São Paulo</h3>
       <p>
-        Em dias de baixa umidade, recomenda-se hidratação, ventilação adequada
-        e evitar exposição prolongada ao calor.
+        Esta informação complementa o monitoramento local e ajuda a entender melhor as condições ambientais da cidade.
       </p>
-    </div>
 
-    <div class="card">
-      <h2>Comércio local</h2>
+      <div style="margin-top: 16px;">
+        <p><strong>AQI:</strong> 28</p>
+        <p><strong>Estação:</strong> Parque D. Pedro II, São Paulo, Brazil</p>
+        <div class="aqi-status" style="background-color: #009966;">Boa</div>
+      </div>
+    </section>
+
+    <section class="card">
+      <h3>💡 Por que este aparelho e este site são importantes?</h3>
       <p>
-        Este projeto também apoia a divulgação de pequenos comércios da região,
-        promovendo visibilidade e fortalecendo a comunidade local.
+        Este monitor ambiental foi criado para facilitar o acesso da comunidade a informações simples e úteis
+        sobre as condições do ambiente. Muitas vezes, temperatura, umidade, pressão atmosférica e qualidade do ar
+        passam despercebidas no dia a dia, mas podem influenciar diretamente o conforto e o bem-estar das pessoas.
       </p>
-    </div>
+      <br>
+      <p>
+        Ao reunir esses dados em um único espaço, o aparelho e o site ajudam a população a acompanhar melhor
+        o ambiente, compreender as condições do momento e adotar cuidados gerais em períodos de calor,
+        ar seco ou piora na qualidade do ar.
+      </p>
+      <br>
+      <p>
+        O objetivo não é fazer diagnóstico, mas oferecer informação acessível, educativa e preventiva,
+        contribuindo para mais atenção à saúde e à qualidade de vida.
+      </p>
+    </section>
 
-  </div>
+    <section class="card explicacao">
+      <h3>🌿 Como entender os dados do monitor</h3>
+      <p>
+        Este monitor mostra informações ambientais que ajudam a acompanhar melhor as condições do dia.
+        A ideia é facilitar a leitura do ambiente e permitir mais atenção em dias de calor,
+        ar seco ou piora da qualidade do ar.
+      </p>
 
-  <script>
-    const MEU_TOKEN = "40c3a6646b4b4b84b64bdf3a0d2dabaa95a7d817";
+      <h4>🌡️ Temperatura</h4>
+      <p>A temperatura mostra o nível de aquecimento do ambiente no momento da leitura.</p>
+      <ul>
+        <li><strong>Até 20°C:</strong> clima mais ameno</li>
+        <li><strong>Entre 21°C e 27°C:</strong> faixa geralmente confortável</li>
+        <li><strong>Acima de 28°C:</strong> maior sensação de calor e desconforto</li>
+        <li><strong>Acima de 32°C:</strong> exige mais atenção com hidratação e ventilação</li>
+      </ul>
+      <p><strong>Exemplo:</strong> se o monitor mostrar <strong>23°C</strong>, isso indica uma temperatura moderada, sem calor excessivo no momento.</p>
 
-    async function obterDadosAr() {
-      try {
-        const url = `https://api.waqi.info/feed/sao-paulo/?token=${MEU_TOKEN}`;
-        const response = await fetch(url);
-        const json = await response.json();
+      <h4>💧 Umidade do ar</h4>
+      <p>A umidade mostra a quantidade de vapor de água presente no ar.</p>
+      <ul>
+        <li><strong>Acima de 60%:</strong> ar mais úmido</li>
+        <li><strong>Entre 40% e 60%:</strong> faixa mais confortável</li>
+        <li><strong>Abaixo de 40%:</strong> ar seco, exige atenção</li>
+        <li><strong>Abaixo de 30%:</strong> maior chance de ressecamento e desconforto respiratório</li>
+      </ul>
+      <p><strong>Exemplo:</strong> se a umidade estiver em <strong>48,5%</strong>, isso indica uma condição considerada equilibrada.</p>
 
-        if (json.status === "ok") {
-          const dados = json.data;
-          const aqi = dados.aqi;
+      <h4>🌬️ Pressão atmosférica</h4>
+      <p>
+        A pressão atmosférica acompanha as condições gerais do tempo. Ela pode variar ao longo do dia
+        e ajudar a perceber mudanças no ambiente.
+      </p>
+      <ul>
+        <li><strong>Valores mais estáveis:</strong> indicam menor variação no tempo</li>
+        <li><strong>Quedas ou mudanças maiores:</strong> podem acompanhar mudanças climáticas</li>
+      </ul>
+      <p>
+        <strong>Exemplo:</strong> se a pressão estiver em <strong>931,2 hPa</strong>, isso representa a leitura
+        do ambiente naquele momento. O mais importante não é decorar o número, mas acompanhar se ele se mantém
+        estável ou muda junto com o tempo.
+      </p>
 
-          document.getElementById("aqi-valor").innerText = aqi;
-          document.getElementById("estacao").innerText = dados.city.name || "São Paulo";
-          atualizarStatus(aqi);
-        } else {
-          document.getElementById("aqi-status").innerText = "Indisponível";
-          document.getElementById("estacao").innerText = "Não foi possível carregar";
-        }
-      } catch (erro) {
-        document.getElementById("aqi-status").innerText = "Erro ao carregar";
-        document.getElementById("estacao").innerText = "Falha na consulta";
-        console.error(erro);
-      }
-    }
+      <h4>🏙️ Qualidade do ar</h4>
+      <p>
+        A qualidade do ar aparece como informação complementar no site e ajuda a entender melhor
+        as condições ambientais da cidade.
+      </p>
+      <ul>
+        <li>🟢 <strong>Boa:</strong> condição mais favorável</li>
+        <li>🟡 <strong>Moderada:</strong> atenção leve, especialmente para pessoas mais sensíveis</li>
+        <li>🟠 <strong>Ruim para grupos sensíveis:</strong> maior atenção para quem costuma sentir desconfortos respiratórios</li>
+        <li>🔴 <strong>Ruim:</strong> recomenda mais cuidado com exposição prolongada</li>
+        <li>🟣 <strong>Muito ruim:</strong> condição mais crítica, exige maior atenção</li>
+      </ul>
+    </section>
 
-    function atualizarStatus(aqi) {
-      const statusEl = document.getElementById("aqi-status");
+    <section class="card">
+      <h3>👀 Como observar os dados em conjunto</h3>
+      <p>O mais importante não é olhar um número sozinho, mas sim o conjunto:</p>
+      <ul>
+        <li><strong>temperatura alta + umidade baixa</strong> → maior sensação de calor e ressecamento</li>
+        <li><strong>umidade baixa + qualidade do ar ruim</strong> → condição que pode exigir mais atenção</li>
+        <li><strong>temperatura moderada + umidade equilibrada</strong> → situação geralmente mais confortável</li>
+      </ul>
+      <p><strong>Exemplo do monitor:</strong></p>
+      <p>🌡️ <strong>23°C</strong></p>
+      <p>💧 <strong>48,5%</strong></p>
+      <p>🌬️ <strong>931,2 hPa</strong></p>
+      <br>
+      <p>Isso indica, de forma geral, uma condição ambiental mais equilibrada no momento da leitura.</p>
+    </section>
 
-      if (aqi <= 50) {
-        statusEl.innerText = "Bom";
-        statusEl.style.backgroundColor = "#009966";
-        statusEl.style.color = "white";
-      } else if (aqi <= 100) {
-        statusEl.innerText = "Moderado";
-        statusEl.style.backgroundColor = "#ffde33";
-        statusEl.style.color = "black";
-      } else if (aqi <= 150) {
-        statusEl.innerText = "Ruim para grupos sensíveis";
-        statusEl.style.backgroundColor = "#ff9933";
-        statusEl.style.color = "white";
-      } else if (aqi <= 200) {
-        statusEl.innerText = "Ruim";
-        statusEl.style.backgroundColor = "#cc0033";
-        statusEl.style.color = "white";
-      } else {
-        statusEl.innerText = "Muito ruim";
-        statusEl.style.backgroundColor = "#660099";
-        statusEl.style.color = "white";
-      }
-    }
+    <section class="card">
+      <h3>💙 Cuidados gerais</h3>
+      <p>
+        Quando os dados mostrarem calor intenso, ar seco ou piora na qualidade do ar,
+        algumas atitudes simples podem ajudar:
+      </p>
+      <ul>
+        <li>beber mais água</li>
+        <li>manter o ambiente ventilado</li>
+        <li>evitar calor excessivo por muito tempo</li>
+        <li>acompanhar as condições do ambiente ao longo do dia</li>
+        <li>dar mais atenção ao bem-estar em dias secos ou abafados</li>
+      </ul>
+    </section>
 
-    obterDadosAr();
-  </script>
+    <section class="card">
+      <h3>🩺 Quando procurar orientação profissional?</h3>
+      <p>
+        As informações deste site têm caráter informativo e educativo. Elas ajudam na observação das condições ambientais,
+        mas não substituem avaliação profissional.
+      </p>
+      <br>
+      <p>
+        Em caso de desconfortos persistentes, piora importante do bem-estar ou necessidade de orientação mais específica,
+        a recomendação é buscar atendimento em uma <strong>Unidade Básica de Saúde (UBS)</strong>
+        ou outro serviço de saúde da sua região.
+      </p>
+    </section>
+
+    <section class="card">
+      <h3>🔗 Fontes e orientações gerais</h3>
+      <div class="fonte-box">
+        <p>
+          Para orientações complementares, consulte fontes públicas e confiáveis de saúde e meio ambiente,
+          como órgãos de saúde pública, monitoramento ambiental e serviços oficiais de atendimento.
+        </p>
+      </div>
+    </section>
+
+    <section class="card">
+      <h3>Comércio local parceiro</h3>
+      <p>
+        A Henry Modas participa desta ação ao disponibilizar o espaço de monitoramento ambiental no estabelecimento,
+        contribuindo para a circulação de informação útil à comunidade e para a valorização do comércio local.
+      </p>
+    </section>
+
+    <section class="card">
+      <h3>ℹ️ Aviso importante</h3>
+      <p>
+        As informações deste site têm caráter informativo e educativo. Elas ajudam na observação das condições ambientais,
+        mas não substituem orientação profissional de saúde.
+      </p>
+    </section>
+
+  </main>
+
+  <footer>
+    Projeto de monitoramento ambiental com foco em informação local, bem-estar e apoio à comunidade.
+  </footer>
 
 </body>
-</html>
+  </html>
